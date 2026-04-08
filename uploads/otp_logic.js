@@ -1,0 +1,10 @@
+Java.perform(function () {
+
+    var OtpVM = Java.use("com.patientsuperapp.auth.OtpViewModel");
+
+    OtpVM.verifyOtp.implementation = function (otp) {
+        console.log("\n[+] OTP PASSED TO LOGIC:", otp);
+        return this.verifyOtp(otp);
+    };
+
+});

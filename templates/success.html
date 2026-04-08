@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SecureShare - Link Generated</title>
+    <style>
+        body {
+            background: #020617;
+            color: #00ffcc;
+            font-family: 'Courier New', monospace;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background: #020617;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 0 25px #00ffcc;
+            width: 420px;
+            text-align: center;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+        }
+
+        .link-box {
+            background: #0f172a;
+            border: 1px solid #00ffcc;
+            padding: 10px;
+            border-radius: 6px;
+            word-wrap: break-word;
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background: #00ffcc;
+            border: none;
+            color: black;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+            margin-top: 5px;
+        }
+
+        button:hover {
+            background: #00ffaa;
+            box-shadow: 0 0 10px #00ffcc;
+        }
+
+        .success {
+            color: #22c55e;
+            margin-bottom: 10px;
+        }
+
+        .info {
+            font-size: 12px;
+            color: #94a3b8;
+            margin-top: 10px;
+        }
+    </style>
+
+    <script>
+        function copyLink() {
+            const link = document.getElementById("link").innerText;
+            navigator.clipboard.writeText(link);
+            alert("Link copied to clipboard!");
+        }
+    </script>
+</head>
+<body>
+
+<div class="container">
+    <h2>🔐 File Secured Successfully</h2>
+
+    <div class="success">✔ Encryption Complete</div>
+
+    <div id="link" class="link-box">
+        {{ link }}
+    </div>
+
+    <button onclick="copyLink()">📋 Copy Secure Link</button>
+
+    <div class="info">
+        ⚠️ This link is protected & expires automatically
+    </div>
+</div>
+
+</body>
+</html>

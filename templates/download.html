@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SecureShare Download</title>
+    <style>
+        body {
+            background: #020617;
+            color: #00ffcc;
+            font-family: 'Courier New', monospace;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background: #020617;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px #00ffcc;
+            width: 350px;
+            text-align: center;
+        }
+
+        h2 {
+            margin-bottom: 15px;
+        }
+
+        .file-name {
+            color: #38bdf8;
+            margin-bottom: 20px;
+        }
+
+        input {
+            width: 90%;
+            padding: 10px;
+            margin: 10px 0;
+            background: #0f172a;
+            border: 1px solid #00ffcc;
+            color: white;
+            border-radius: 5px;
+        }
+
+        button {
+            width: 95%;
+            padding: 10px;
+            background: #00ffcc;
+            border: none;
+            color: black;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: #00ffaa;
+            box-shadow: 0 0 10px #00ffcc;
+        }
+
+        .warning {
+            color: #f87171;
+            font-size: 12px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>🔓 Secure Download</h2>
+
+    <div class="file-name">File: {{ filename }}</div>
+
+    <form method="POST">
+        <input type="password" name="password" placeholder="Enter Password" required>
+        <button type="submit">Decrypt & Download</button>
+    </form>
+
+    <div class="warning">⚠️ Access is protected & monitored</div>
+</div>
+
+</body>
+</html>

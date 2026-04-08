@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SecureShare Upload</title>
+    <style>
+        body {
+            background: #0f172a;
+            color: #00ffcc;
+            font-family: 'Courier New', monospace;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background: #020617;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px #00ffcc;
+            width: 350px;
+            text-align: center;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            color: #00ffcc;
+        }
+
+        input {
+            width: 90%;
+            padding: 10px;
+            margin: 10px 0;
+            background: #0f172a;
+            border: 1px solid #00ffcc;
+            color: white;
+            border-radius: 5px;
+        }
+
+        button {
+            width: 95%;
+            padding: 10px;
+            background: #00ffcc;
+            border: none;
+            color: black;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: #00ffaa;
+            box-shadow: 0 0 10px #00ffcc;
+        }
+
+        .tag {
+            font-size: 12px;
+            color: #94a3b8;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>🔐 Secure Upload</h2>
+
+    <form method="POST" enctype="multipart/form-data">
+        <input type="file" name="file" required>
+        <input type="password" name="password" placeholder="Set Password" required>
+        <button type="submit">Upload File</button>
+    </form>
+
+    <div class="tag">AES Encrypted • Zero Trust • Secure Sharing</div>
+</div>
+
+</body>
+</html>
