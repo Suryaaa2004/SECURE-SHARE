@@ -52,8 +52,13 @@ def upload():
         encrypted_local_path = encrypt_file(local_path, password)
 
         # Upload encrypted file to Blob storage
+        # Upload encrypted file to Blob storage
         with open(encrypted_local_path, "rb") as f:
-            blob_result = vercel_blob.put(f"encrypted/{filename}", f.read())
+            blob_result = vercel_blob.put(
+                f"encrypted/{filename}",
+                f.read(),
+                {"allowOverwrite": True}
+            )
 
         hashed_pw = hash_password(password)
         token = generate_token()
