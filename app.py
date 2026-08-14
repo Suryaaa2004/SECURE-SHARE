@@ -116,13 +116,22 @@ def download(token):
             # Download encrypted blob into /tmp
             encrypted_local_path = os.path.join(TMP_DIR, f"enc_{filename}")
             resp = requests.get(file_data["blob_url"])
+
+            if resp.status_code != 200 or len(resp.content) < 16:
+                return "This link has already been used or has expired."
+
             with open(encrypted_local_path, "wb") as f:
                 f.write(resp.content)
 
-            decrypted_path = decrypt_file(encrypted_local_path, password)
+            try:
+                decrypted_path = decrypt_file(encrypted_local_path, password)
+            except Exception:
+                return "This link has already been used or has expired."
 
-            log_access(filename, "SUCCESS")
-
+            log_access(filename, "SUCCESS")git add app.py
+git commit -m "allow metadata blob overwrite"
+git push origin main
+vercel --prod
             # One-time download: delete blob + metadata entry
             try:
                 vercel_blob.delete(file_data["blob_url"])
