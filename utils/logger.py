@@ -1,8 +1,7 @@
 from datetime import datetime
-import os
+import logging
 
-os.makedirs("logs", exist_ok=True)
+logging.basicConfig(level=logging.INFO)
 
 def log_access(filename, status):
-    with open("logs/access.log", "a") as f:
-        f.write(f"{datetime.now()} - {filename} - {status}\n")
+    logging.info(f"{datetime.now()} - {filename} - {status}")
