@@ -34,7 +34,7 @@ def save_metadata(data):
     vercel_blob.put(
         METADATA_PATH,
         json.dumps(data).encode(),
-        {"contentType": "application/json"}
+        {"contentType": "application/json", "allowOverwrite": True}
     )
 
 
