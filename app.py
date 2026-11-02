@@ -15,10 +15,16 @@ from io import BytesIO
 app = Flask(__name__)
 
 BASE_DIR = Path(__file__).resolve().parent
-STORAGE = BASE_DIR / "storage"
-DB_PATH = BASE_DIR / "secureshare.db"
 
-STORAGE.mkdir(exist_ok=True)
+# Vercel allows temporary writes in /tmp
+if os.environ.get("VERCEL"):
+    STORAGE = Path("/tmp/secureshare_storage")
+    DB_PATH = Path("/tmp/secureshare.db")
+else:
+    STORAGE = BASE_DIR / "storage"
+    DB_PATH = BASE_DIR / "secureshare.db"
+
+STORAGE.mkdir(parents=True, exist_ok=True)
 
 app.config["MAX_CONTENT_LENGTH"] = 100 * 1024 * 1024  # 100 MB
 app.config["SECRET_KEY"] = os.environ.get(
